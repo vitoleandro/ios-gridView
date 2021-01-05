@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		EE490C5325A3D4A8005A4D41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE490C5225A3D4A8005A4D41 /* ContentView.swift */; };
 		EE490C5525A3D4A9005A4D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE490C5425A3D4A9005A4D41 /* Assets.xcassets */; };
 		EE490C5825A3D4A9005A4D41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE490C5725A3D4A9005A4D41 /* Preview Assets.xcassets */; };
+		EE490C6225A3EE0A005A4D41 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EE490C6125A3EE0A005A4D41 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE490C6225A3EE0A005A4D41 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,9 @@
 			dependencies = (
 			);
 			name = GridView;
+			packageProductDependencies = (
+				EE490C6125A3EE0A005A4D41 /* Kingfisher */,
+			);
 			productName = GridView;
 			productReference = EE490C4D25A3D4A8005A4D41 /* GridView.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +117,9 @@
 				Base,
 			);
 			mainGroup = EE490C4425A3D4A8005A4D41;
+			packageReferences = (
+				EE490C6025A3EE0A005A4D41 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = EE490C4E25A3D4A8005A4D41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,6 +277,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GridView/Preview Content\"";
+				DEVELOPMENT_TEAM = EB3GXE55ED;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GridView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -279,7 +288,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitoleandro.GridView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -290,6 +299,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GridView/Preview Content\"";
+				DEVELOPMENT_TEAM = EB3GXE55ED;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GridView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -300,7 +310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitoleandro.GridView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -326,6 +336,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE490C6025A3EE0A005A4D41 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE490C6125A3EE0A005A4D41 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE490C6025A3EE0A005A4D41 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE490C4525A3D4A8005A4D41 /* Project object */;
 }
