@@ -41,18 +41,68 @@ class GridViewModel: ObservableObject {
 struct ContentView: View {
     
     @ObservedObject var vm = GridViewModel()
+    @State var searchText:String = ""
+    @State var isSearching:Bool = false
     
     var body: some View {
         NavigationView {
             ScrollView {
+                
+                HStack {
+                    HStack {
+                        TextField("Search", text: $searchText)
+                            .padding(.leading, 24)
+                    }
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(6)
+                    .onTapGesture(perform: {
+                        isSearching = true
+                    })
+                    .padding(.horizontal)
+                    .overlay(
+                        HStack {
+                            Image(systemName: "magnifyingglass").foregroundColor(Color.gray)
+                            Spacer()
+                            if(isSearching) {
+                                Button(action: {
+                                    searchText = ""
+                                }, label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(Color.gray)
+                                        .padding(.vertical)
+                                })
+                            }
+                        }
+                        .padding(.horizontal, 32)
+                    )
+                    .transition(.move(edge: .trailing))
+                    .animation(.spring())
+                    
+                    if(isSearching) {
+                        Button(
+                            action: {
+                                isSearching = false
+                                searchText = ""
+                                
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                
+                            }, label: {
+                                Text("Cancel")
+                                    .padding(.trailing)
+                            })
+                            .transition(.move(edge: .trailing))
+                            .animation(.spring())
+                    }
+                }
+                
                 LazyVGrid(columns: [
                     GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16),
                     GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16),
                     GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16)
                 ], alignment: .leading, spacing: 16,  content: {
-                    ForEach(vm.results, id:\.self) { app in
+                    ForEach((vm.results).filter({ "\($0)".contains(searchText) || searchText.isEmpty }), id:\.self) { app in
                         AppInfo(app: app)
-//                        .padding(.horizontal)
                     }
                 }).padding(.horizontal, 12)
             }.navigationTitle("Grid Search By Json")
